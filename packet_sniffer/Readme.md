@@ -6,6 +6,7 @@
     - [Subnet](#subnet)
     - [Pack and Unpack in Python](#pack-and-unpack-in-python)
     - [htons() function in socket programing](#htons-function-in-socket-programing)
+    - [Mac address format](#mac-address-format)
     - [References](#references)
 
 <!-- /TOC -->
@@ -57,6 +58,10 @@ H = small unsigned int (2 byte)
 _htons is host-to-network short_ This means it works on 16-bit short integers. i.e. 2 bytes. This function swaps the endianness of a short. It ensures that number is stored in memory in Network Byte Order.
 
 ![](img/2020-09-08-23-15-07.png)
+
+## Mac address format  
+
+![](img/2020-09-09-12-54-25.png)
 
 ## References
 
