@@ -1,3 +1,6 @@
+
+# Essential Python  
+
 <!-- vscode-markdown-toc -->
 * 1. [Class Variables](#ClassVariables)
 * 2. [Class Methods and Static Methods](#ClassMethodsandStaticMethods)
@@ -6,7 +9,7 @@
 	numbering=true
 	autoSave=true
 	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc --># Essential Python  
+<!-- /vscode-markdown-toc -->  
 
 
 
