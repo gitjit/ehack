@@ -1,6 +1,16 @@
-# Essential Python  
+<!-- vscode-markdown-toc -->
+* 1. [Class Variables](#ClassVariables)
+* 2. [Class Methods and Static Methods](#ClassMethodsandStaticMethods)
 
-## Class Variables 
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc --># Essential Python  
+
+
+
+##  1. <a name='ClassVariables'></a>Class Variables 
 
 There are two class variables declared in this class.
 
@@ -107,3 +117,6 @@ Now let us inspect the __dict__, you can see emp1 got its own local variable
 {'__module__': '__main__', 'raise_amount': 1.04, '__init__': <function Employee.__init__ at 0x10893aea0>, 'fullname': <function Employee.fullname at 0x10893af28>, 'pay': <function Employee.pay at 0x10894d048>, '__dict__': <attribute '__dict__' of 'Employee' objects>, '__weakref__': <attribute '__weakref__' of 'Employee' objects>, '__doc__': None}
 {'_first': 'Ganga', '_last': 'Menon', '_pay': 40000, '_email': 'Ganga.Menon@company.com'}
 ```
+
+##  2. <a name='ClassMethodsandStaticMethods'></a>Class Methods and Static Methods
+
