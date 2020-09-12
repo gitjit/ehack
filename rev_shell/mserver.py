@@ -1,12 +1,13 @@
 # multi server
-import socket 
+import socket
 import time
 import sys
-import struct 
+import struct
 import threading
 
 NUM_THREADS = 2
-JOBS = [1,2]
+JOBS = [1, 2]
+
 
 class MultiServer(object):
 
@@ -27,58 +28,71 @@ class MultiServer(object):
             print("Socket binding error: " + str(e))
             time.sleep(5)
             self.create_server()
-    
+
     def start_server(self):
         for c in self.all_connections:
             c.close()
-        
+
         self.all_connections = []
         self.all_addresses = []
 
         while 1:
             try:
-                print('Server: Waiting for new client')
-                conn, address = self.socket.accept() 
-                print ( address )
-                conn.setblocking(1) # blocking
+                conn, address = self.socket.accept()
+                conn.setblocking(1)  # blocking
                 client_hostname = conn.recv(1024).decode('utf-8')
                 address = address + (client_hostname,)
-                print (address)
             except Exception as e:
                 print('Error accepting connections: ' + str(e))
                 continue
             self.all_connections.append(conn)
             self.all_addresses.append(address)
-            print('\nConnection has been established: {0} ({1})'.format(address[-1],address[0]))
-        
         return
-    
 
     def handle_client(self):
-        pass 
+        pass
+
 
 def start_server(server):
-    print ('starting server...', server)
     server.create_server()
     server.start_server()
-    
+
+
 def process_client(server):
-    print ('Processing client .. ')
+    print('Waiting for clients.')
     while True:
-        cmd = input('Enter your Command : ')
-        if cmd == 'ls':
-            for  item in server.all_addresses:
-                print(item)
-    pass 
+        if not server.all_addresses:
+            print(".",end="")
+            time.sleep(1)
+            sys.stdout.flush()
+            continue
+        for  i, item in enumerate(server.all_addresses):
+                print(i, item)
+        cmd = input('Select your client : ')
+        if cmd == 'r':
+            continue
+        client = server.all_connections[int(cmd)]
+        send_commands(client)
 
 
+def send_commands(client):
+    cmd = "join"
+    while 1:
+        client.send(cmd.encode())
+        if(cmd == 'quit'):
+            break
+        client_response = str(client.recv(1024), "utf-8")
+        print(client_response, end="")
+        cmd = input()
+     
+           
 def start():
     server = MultiServer()
-    listener_thread = threading.Thread(target=start_server,args=(server,))
+    listener_thread = threading.Thread(target=start_server, args=(server,))
     listener_thread.daemon = True
     listener_thread.start()
-   
-    worker_thread = threading.Thread(target=process_client,args=(server,))
+
+    worker_thread = threading.Thread(target=process_client, args=(server,))
     worker_thread.daemon = True
     worker_thread.start()
     listener_thread.join()
@@ -87,8 +101,6 @@ def start():
 
 def main():
     start()
-
-    
 
 
 main()
