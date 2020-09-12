@@ -7,6 +7,9 @@
     - [Pack and Unpack in Python](#pack-and-unpack-in-python)
     - [htons() function in socket programing](#htons-function-in-socket-programing)
     - [Mac address format](#mac-address-format)
+    - [IP Packet](#ip-packet)
+    - [Binary Shift](#binary-shift)
+    - [TCP/IP Packet](#tcpip-packet)
     - [References](#references)
 
 <!-- /TOC -->
@@ -51,6 +54,8 @@ iif = 2 integers and 1 float (12 bytes)
 s = character (1 byte)  
 H = small unsigned int (2 byte)  
 
+![](img/2020-09-09-17-41-29.png)
+
 ![](img/2020-09-08-23-04-09.png)  
 
 ## htons() function in socket programing
@@ -62,6 +67,22 @@ _htons is host-to-network short_ This means it works on 16-bit short integers. i
 ## Mac address format  
 
 ![](img/2020-09-09-12-54-25.png)
+
+## IP Packet 
+![](img/2020-09-09-17-23-19.png)  
+
+![](img/2020-09-09-16-57-57.png)
+
+Version : IPV4 / IPV6 
+IHL : Header lenght. (expressed in word). So multiply by 4 on value obtained in those 4 bits.
+
+
+## Binary Shift  
+![](img/2020-09-09-17-08-12.png)
+
+## TCP/IP Packet 
+
+![](img/2020-09-09-19-51-21.png)
 
 ## References
 
